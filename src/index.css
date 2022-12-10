@@ -13,11 +13,3 @@ body {
   margin: 0 auto;
   padding: 0;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-  padding: 20rem;
-  justify-content: center;
-  align-items: center;
-}

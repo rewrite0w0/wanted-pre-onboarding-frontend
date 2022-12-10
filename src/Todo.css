@@ -1,0 +1,42 @@
+.todo__app__wrap {
+  min-width: 12.8rem;
+  margin: 0 auto;
+  min-height: 10.8rem;
+}
+
+.todo__app {
+  width: 100%;
+  height: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+
+.logout__container {
+  right: 10rem;
+  position: fixed;
+}
+
+.input__todo__container {
+  position: fixed;
+}
+
+.todo__lists {
+  margin-top: 2.5rem;
+}
+
+button {
+  all: unset;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+span {
+  font-size: 1rem;
+}
+
+.todo__lists > div {
+  margin: 0.25rem;
+}

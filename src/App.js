@@ -34,8 +34,6 @@ export default function App() {
     }
   };
 
-  localStorageNullChecker();
-
   const loginHandler = () => {
     axios
       .post(URL('signup'), {
@@ -82,34 +80,38 @@ export default function App() {
   const buttonHandler = () => {
     return userPass.length >= 8 && userId.match(/@/g).length === 1;
   };
+  localStorageNullChecker();
 
   return (
     <div className="App">
-      <main>
+      <main className="app__wrap">
         <section>
           <label htmlFor="loginID">ID</label>
           <input
-            placeholder="아이디를 입력해주세요"
+            placeholder="ID"
             type="email"
             id="loginID"
+            className="app__login__id"
             onChange={(e) => setUserId(e.target.value.trim())}
             required
           />
-          <br />
+          {/* <br /> */}
           <label htmlFor="loginPassword">PassWord</label>
           <input
-            placeholder="비밀번호를 입력해주세요"
+            placeholder="PassWord"
             type="password"
             id="loginPassword"
+            className="app__login__password"
             minLength={8}
             maxLength={16}
             onChange={(e) => setUserPass(e.target.value)}
             required
           />
-          <br />
+          {/* <br /> */}
           <input
             type="submit"
             value="로그인"
+            className="app__login__button"
             disabled={buttonHandler() ? false : true}
             onClick={loginHandler}
           />

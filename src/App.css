@@ -1,0 +1,27 @@
+.app__wrap {
+  min-width: 12.8rem;
+  min-height: 10.8rem;
+  width: 100%;
+  height: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+}
+
+input {
+  margin: 0.5rem;
+}
+
+.app__login__id {
+}
+
+.app__login__password {
+}
+
+.app__login__button {
+}
+
+.app__login__button:hover {
+}

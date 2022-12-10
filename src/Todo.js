@@ -171,12 +171,22 @@ export default function Todo() {
   }, []);
 
   return (
-    <div className="todoApp">
-      <main>
-        <section>
+    <div className="todo__app__wrap">
+      <main className="todo__app">
+        <section className="logout__container">
+          <button
+            onClick={() => {
+              window.localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            👋
+          </button>
+        </section>
+
+        <section className="input__todo__container">
           <input
             ref={inputTodoValue}
-            id="inputTodo"
             // placeholder="todo 입력 / 수정"
             placeholder="todo 추가"
             onKeyDownCapture={(e) => {
@@ -190,61 +200,55 @@ export default function Todo() {
               inputTodoValue.current.value = '';
             }}
           >
-            todo 추가
+            📝
           </button>
         </section>
-        <section>
+
+        <section className="todo__lists">
           {renderTodoItems.map((item) => (
             <div
               key={item.id}
               id={item.id}
               className={item.isCompleted === true ? 'done' : 'liveAlive'}
             >
-              <h1
+              <span
+                style={{
+                  textDecorationLine:
+                    item.isCompleted === true ? 'line-through' : 'none',
+                }}
                 onClick={(e) => {
                   todoIsComplitedToggle(e);
                 }}
               >
                 {item.todo}
-              </h1>
-              <br />
-              <span>{item.isCompleted ? '완료' : '진행중'}</span>
+              </span>
+
+              <span>{item.isCompleted ? '<✔️>' : '<💬>'}</span>
 
               {/* <button onClick={(e) => updateTodoHandler(e)}>수정</button> */}
               <button
                 onClick={(e) =>
-                  (e.target.parentElement.childNodes[5].style.display = 'block')
+                  (e.target.parentElement.childNodes[4].style.display = 'block')
                 }
               >
-                수정모드
+                ✏️
               </button>
-              <button onClick={(e) => deleteTodoHandler(e)}>삭제</button>
+              <button onClick={(e) => deleteTodoHandler(e)}>🧼</button>
 
               <article style={{ display: 'none' }}>
-                <input placeholder="수정하자" />
-                <button onClick={(e) => todoUpdateHandler(e)}>수정</button>
+                <input placeholder="수정할 내용" />
+                <button onClick={(e) => todoUpdateHandler(e)}>💾</button>
                 <button
                   onClick={(e) => {
                     updateCancelHandler(e);
                   }}
                 >
-                  취소
+                  🗙
                 </button>
               </article>
             </div>
           ))}
         </section>
-
-        {/* <section>
-          <button
-            onClick={() => {
-              window.localStorage.clear();
-              window.location.reload();
-            }}
-          >
-            로그아웃?
-          </button>
-        </section> */}
       </main>
     </div>
   );
