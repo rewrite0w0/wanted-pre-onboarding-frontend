@@ -48,3 +48,7 @@ npm start
 - https://odysee.com/wanted-pre-onboarding-frontend-demo:4
 
 ## 데모 영상은 배포 링크로 대체 가능하며, 배포 시 가산점이 부여됩니다.
+
+## 배포 링크
+
+- https://wanted-pre-onboarding-frontend-virid.vercel.app/
