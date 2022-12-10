@@ -129,8 +129,12 @@ export default function Todo() {
 
   const enterKeyHandler = (e) => {
     if (e.key === 'Enter' || e.key === 'NumpadEnter') {
-      inputTodoHandler(e.target.value);
-      e.target.value = '';
+      if (e.target.value.trim().length < 1) {
+        return alert('내용을 입력해주세요 :)');
+      } else {
+        inputTodoHandler(e.target.value);
+        e.target.value = '';
+      }
     } else return 0;
   };
 
@@ -140,6 +144,10 @@ export default function Todo() {
   };
 
   const todoUpdateHandler = (e) => {
+    if (e.target.parentElement.childNodes[0].value.trim().length < 1) {
+      return alert('내용을 입력해주세요 :)');
+    }
+
     axios
       .put(
         URL(e.target.parentElement.parentElement.id),
@@ -164,6 +172,15 @@ export default function Todo() {
         // console.log(err.request);
         // console.log(err.response);
       });
+  };
+
+  const addTodoButtonHandler = () => {
+    if (inputTodoValue.current.value.trim().length < 1) {
+      return alert('내용을 입력해주세요 :)');
+    } else {
+      inputTodoHandler(inputTodoValue.current.value);
+      inputTodoValue.current.value = '';
+    }
   };
 
   useEffect(() => {
@@ -195,14 +212,7 @@ export default function Todo() {
             }}
           />
 
-          <button
-            onClick={() => {
-              inputTodoHandler(inputTodoValue.current.value);
-              inputTodoValue.current.value = '';
-            }}
-          >
-            📝
-          </button>
+          <button onClick={addTodoButtonHandler}>📝</button>
         </section>
 
         <section className="todo__lists">
