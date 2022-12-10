@@ -22,7 +22,7 @@ export default function App() {
 
   const redirectHandler = () => {
     // window.location.href = '/todo';
-    window.location.replace('todo');
+    window.location.replace('/todo');
   };
 
   const localStorageNullChecker = () => {
