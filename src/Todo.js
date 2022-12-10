@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
-import './todo.css';
+import './Todo.css';
 
 export default function Todo() {
   const [renderTodoItems, setRenderTodoItems] = useState([]);
