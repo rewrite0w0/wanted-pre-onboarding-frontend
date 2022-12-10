@@ -45,6 +45,6 @@ npm start
 
 ## 데모 영상
 
-<video src="./demo.mkv" controls="true" />
+<video src="./demo.mp4" controls="true" />
 
 ## 데모 영상은 배포 링크로 대체 가능하며, 배포 시 가산점이 부여됩니다.
