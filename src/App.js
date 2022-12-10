@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { redirect } from 'react-router-dom';
 
 import './App.css';
 
@@ -80,7 +79,11 @@ export default function App() {
   const buttonHandler = () => {
     return userPass.length >= 8 && userId.match(/@/g).length === 1;
   };
-  localStorageNullChecker();
+
+  useEffect(() => {
+    localStorageNullChecker();
+    document.title = '프리온보딩 커리어 챌린지 2022 | 로그인';
+  }, []);
 
   return (
     <div className="App">

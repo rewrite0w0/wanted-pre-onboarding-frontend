@@ -167,6 +167,7 @@ export default function Todo() {
   };
 
   useEffect(() => {
+    document.title = '프리온보딩 커리어 챌린지 2022 | todo 목록';
     loadTodoList();
   }, []);
 
