@@ -45,6 +45,6 @@ npm start
 
 ## 데모 영상
 
-<video src="./demo.mp4" controls="true" />
+- https://odysee.com/wanted-pre-onboarding-frontend-demo:4
 
 ## 데모 영상은 배포 링크로 대체 가능하며, 배포 시 가산점이 부여됩니다.
