@@ -96,7 +96,7 @@ export default function App() {
         <section>
           <label htmlFor="loginID">ID</label>
           <input
-            placeholder="메일을 입력해주세요"
+            placeholder="메일을 입력"
             type="email"
             id="loginID"
             className="app__login__id"
@@ -106,7 +106,7 @@ export default function App() {
           {/* <br /> */}
           <label htmlFor="loginPassword">PassWord</label>
           <input
-            placeholder="8자리 이상 입력해주세요"
+            placeholder="8자리 이상 입력"
             type="password"
             id="loginPassword"
             className="app__login__password"
