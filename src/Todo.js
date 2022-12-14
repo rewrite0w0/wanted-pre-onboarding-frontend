@@ -23,36 +23,20 @@ export default function Todo() {
 
   localStorageNullChecker();
 
-  // console.log(localStorage.getItem('jwt_access_token'));
-
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('jwt_access_token')}`,
       'Content-Type': 'application/json',
     },
   };
-  // console.log(config);
-
-  const data = {
-    // id: Math.random(),
-    // todo: '과제하기',
-    isCompleted: false,
-    userId: localStorage.getItem('jwt_access_token'),
-  };
 
   const loadTodoList = () => {
     axios
       .get(URL(''), config)
       .then((res) => {
-        // console.log(res);
-        // console.log(res.data);
         setRenderTodoItems(res.data);
       })
-      .catch((err) => {
-        // console.log(err);
-      });
-
-    // console.log(renderTodoItems);
+      .catch((err) => {});
   };
 
   const inputTodoValue = useRef('');
@@ -61,24 +45,18 @@ export default function Todo() {
     axios
       .post(URL(''), { todo: addTodo }, config)
       .then((res) => {
-        // console.log(res);
         loadTodoList();
       })
-      .catch((err) => {
-        // console.log(err);
-      });
+      .catch((err) => {});
   };
 
   const deleteTodoHandler = (e) => {
     axios
       .delete(URL(e.target.parentElement.id), config)
       .then((res) => {
-        // console.log(res);
         loadTodoList();
       })
-      .catch((err) => {
-        // console.error(err);
-      });
+      .catch((err) => {});
   };
 
   const todoIsComplitedToggle = (e) => {
@@ -95,36 +73,9 @@ export default function Todo() {
         config
       )
       .then((res) => {
-        // console.log(res);
         loadTodoList();
       })
-      .catch((err) => {
-        // console.log(err);
-      });
-  };
-
-  const updateTodoHandler = (e) => {
-    axios
-      .put(
-        URL(e.target.parentElement.id),
-        {
-          id: e.target.parentElement.id,
-          todo: inputTodoValue.current.value,
-          isCompleted:
-            e.target.parentElement.className === 'done' ? true : false,
-          userId: localStorage.getItem('jwt_access_token'),
-        },
-        config
-      )
-      .then((res) => {
-        // console.log(res);
-        loadTodoList();
-        inputTodoValue.current.value = '';
-      })
-      .catch((err) => {
-        // console.log(err.request);
-        // console.log(err.response);
-      });
+      .catch((err) => {});
   };
 
   const enterKeyHandler = (e) => {
@@ -163,15 +114,11 @@ export default function Todo() {
         config
       )
       .then((res) => {
-        // console.log(res);
         loadTodoList();
         e.target.parentElement.style.display = 'none';
         e.target.parentElement.childNodes[0].value = '';
       })
-      .catch((err) => {
-        // console.log(err.request);
-        // console.log(err.response);
-      });
+      .catch((err) => {});
   };
 
   const addTodoButtonHandler = () => {
@@ -205,7 +152,6 @@ export default function Todo() {
         <section className="input__todo__container">
           <input
             ref={inputTodoValue}
-            // placeholder="todo 입력 / 수정"
             placeholder="todo 추가"
             onKeyDownCapture={(e) => {
               enterKeyHandler(e);
@@ -236,7 +182,6 @@ export default function Todo() {
 
               <span>{item.isCompleted ? '<✔️>' : '<💬>'}</span>
 
-              {/* <button onClick={(e) => updateTodoHandler(e)}>수정</button> */}
               <button
                 onClick={(e) =>
                   (e.target.parentElement.childNodes[4].style.display = 'block')
